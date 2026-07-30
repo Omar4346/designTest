@@ -1,0 +1,34 @@
+<body>
+    <h1> Hello {{username}} </h1>
+        <h2> Customers: </h2>
+        <button type="button" (click)="addCustomer()"> + Add </button>
+            <div>
+                    what should look like:
+                        request made for customers of person
+                        value returned
+                            if none, error error message
+                            else customer: f/l/m name, phone number, appointments, notes, status
+                                appointments: participant, personel
+            </div>
+<!-- 
+    #customers under org 
+    #right click functionality for following:
+        #mofify customer info
+            #is input field, but has present customer information
+                #if any info is changed and okay pressed, prompt for saving changes
+                #else  don't modify anything
+                #exit button should be functionally equivalent
+        #delete customer info
+            #are you sure
+                #yes and no
+    #plus button for adding another user
+        #input field is used AGAIN, but is empty
+            #when save changes is pressed, new user is created
+            #when cancel is pressed, new user is not created
+            #when exit button is pressed, prompt for user wanting to save unsaved changes
+                #yes means that temp progress is saved
+                #no means that progress is lost
+    #temp tab for unfinished customers
+        #and should save users who have not been saved due to system change.
+-->
+</body>

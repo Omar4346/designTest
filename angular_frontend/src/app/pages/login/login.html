@@ -1,0 +1,10 @@
+ <form>
+    <label for="fname">First name:</label><br>
+    <input [(ngModel)] = "user.firstName" ><br>
+    <label for="lname">Last name:</label><br>
+    <input [(ngModel)] = "user.lastName" >
+    <label for="password">Password</label><br>
+    <input [(ngModel)] = "user.password" ><br> 
+    <button type="button" (click)="requestAccess()">Click Me!</button>
+    <div If="errorMessage" [class]="errorType"> {{ errorMessage }} </div>
+</form>
