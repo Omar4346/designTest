@@ -42,6 +42,9 @@ export class Login {
       this.setClientKeys();
     }
 
+    /*
+        request public key: 
+    */
     //if no server public key, request it
     if (this.theirPublicKey.length === 0){
       //if server can't provide public key, return error
@@ -54,7 +57,6 @@ export class Login {
 
       //encapsulate shared object
     let [kemCiphertext, sharedSecret] = recipient.encap(this.clientPublicKey)
-    
 
     //setup object to encrypt/decrypt
     let loginRequest = Buffer.from(JSON.stringify(this.user), "utf8");
@@ -119,16 +121,8 @@ export class Login {
         this.router.navigate(['/']);
         break;
     }
-
   }
 
-    /*
-      const plaintext = Buffer.from(JSON.stringify(obj), "utf8");
-    */
-
-    //convert object to bytes
-
-    //encrypt
   requestKey(){
     return new Uint8Array();
   }
