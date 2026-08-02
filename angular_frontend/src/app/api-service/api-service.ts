@@ -1,5 +1,6 @@
 import { Component, } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { GlobalCnst, GlobalMod } from '../globals';
 
 @Component({
   selector: 'app-api-service',
@@ -14,6 +15,9 @@ export class ApiService {
 
   //make request, handle response, if content: return, if arg:
   async apiRequest(requestType: string, args:JSON){
-    let response = this.http.post()
+    let response = this.http.post(GlobalCnst.BASE_API_URL + requestType, args)
+    if (response == null){
+
+    }
   }
 }
