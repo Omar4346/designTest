@@ -7,7 +7,7 @@ import {
   createDecipheriv,
   randomBytes,
 } from "crypto";
-import { GlobalCnst, GlobalMod } from '../../globals';
+
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
