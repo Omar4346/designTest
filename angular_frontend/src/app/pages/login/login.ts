@@ -1,5 +1,5 @@
 import { Component,} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
 import { createMlKem768, MlKemInterface,} from "mlkem";
 import { FormsModule } from '@angular/forms';
 import {
@@ -23,17 +23,11 @@ import { Router } from '@angular/router';
 })
 export class Login {
   constructor(private http: HttpClient, private router: Router) {}
-  user = {
-    firstName: '',
-    lastName: '',
-    password: ''
-  };
 
   theirPublicKey = new Uint8Array();
   clientPrivateKey = new Uint8Array();
   clientPublicKey = new Uint8Array();
   errorMessage = '';
-  errorType = '';
 
   async requestAccess() {
     let recipient = await createMlKem768();

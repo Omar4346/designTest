@@ -16,7 +16,6 @@ const GlobalCnst = Object.freeze({
      BASE_API_URL: 'http://example.com/',
 });
 
-
 @Component({
   selector: 'app-api-service',
   imports: [],
@@ -26,22 +25,28 @@ const GlobalCnst = Object.freeze({
 export class ApiService {
   constructor(private http: HttpClient){}
 
-  /* request, add remove, modify */
-
+  //should handle request, add, remove, modify
   //make request, handle response, if content: return, if arg:
-  async apiRequest(requestType: string, args:JSON){
-    //call encryption function to encrypt args
-    let encryptedArgs 
 
-    let response = this.http.post(GlobalCnst.BASE_API_URL + requestType, args)
+  /*
+    anatomy of api call:
+      method
+      URL
+      HEADER
+      QUERY PARAMETERS
+      BODY
+      RESPONSE (FUNCTION RESPONDS TO REQUEST)
+
+  */
+  async apiRequest(requestType: string, args:JSON){
+    let response = this.http.(GlobalCnst.BASE_API_URL + requestType, args)
     //no return, throw error
     if (response == null){
-      return 0;
+      return null;
+    if (response[0][0] != 2){
+      return response[0];
     }
-    //decrypt message, respond to error code
-
-  
-  //decrypt and return if successful
-  
+    return response;
+    }  
   }
 }
