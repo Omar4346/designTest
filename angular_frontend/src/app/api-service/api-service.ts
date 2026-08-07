@@ -1,17 +1,6 @@
 import { Component, } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const responseMsg: { [key: string]: string } = {
-  200: "OK",
-  201: "CREATED",
-  202: "ACCEPTED",
-  400: "BAD REQUEST",
-  401: "UNAUTHORIZED",
-  403: "FORBIDDEN",
-  404: "NOT FOUND",
-  500: "INTERNAL SERVER ERROR"
-};
-
 const GlobalCnst = Object.freeze({
      BASE_API_URL: 'http://example.com/',
 });
@@ -27,26 +16,20 @@ export class ApiService {
 
   //should handle request, add, remove, modify
   //make request, handle response, if content: return, if arg:
-
-  /*
-    anatomy of api call:
-      method
-      URL
-      HEADER
-      QUERY PARAMETERS
-      BODY
-      RESPONSE (FUNCTION RESPONDS TO REQUEST)
-
-  */
-  async apiRequest(requestType: string, args:JSON){
-    let response = this.http.(GlobalCnst.BASE_API_URL + requestType, args)
-    //no return, throw error
-    if (response == null){
-      return null;
-    if (response[0][0] != 2){
-      return response[0];
+  async apiRequest(url: string, requestType: string, args:JSON){
+    switch (requestType){
+      case "POST":
+        return this.http.post(GlobalCnst.BASE_API_URL + url, args);
+      case "GET":
+        return this.http.get(GlobalCnst.BASE_API_URL + url);
+      case "PUT":
+        return this.http.put(GlobalCnst.BASE_API_URL + url, args);
+      case "DELETE":
+        return this.http.delete(GlobalCnst.BASE_API_URL + url)
+      case "PATCH":
+        return this.http.patch(GlobalCnst.BASE_API_URL + url, args)
+      default:
+        return null;
     }
-    return response;
-    }  
   }
 }
