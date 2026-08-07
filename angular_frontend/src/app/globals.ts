@@ -8,4 +8,3 @@ const responseMsg: { [key: string]: string } = {
   404: "NOT FOUND",
   500: "INTERNAL SERVER ERROR"
 };
-

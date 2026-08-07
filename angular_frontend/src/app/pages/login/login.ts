@@ -1,4 +1,4 @@
-import { Component,} from '@angular/core';
+import { Component} from '@angular/core';
 
 import { createMlKem768, MlKemInterface,} from "mlkem";
 import { FormsModule } from '@angular/forms';
@@ -32,10 +32,13 @@ export class Login {
 
   async requestAccess() {
     let recipient = await createMlKem768();
+
+    /*
     //if no client keys, create them
     if(this.clientPrivateKey.length === 0){
       this.setClientKeys();
     }
+    */
 
     /*
         request public key: 

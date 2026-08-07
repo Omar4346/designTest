@@ -16,7 +16,7 @@ export class ApiService {
 
   //should handle request, add, remove, modify
   //make request, handle response, if content: return, if arg:
-  async apiRequest(url: string, requestType: string, args:JSON){
+  async apiRequest(url: string, requestType: string, args?:JSON){
     switch (requestType){
       case "POST":
         return this.http.post(GlobalCnst.BASE_API_URL + url, args);
